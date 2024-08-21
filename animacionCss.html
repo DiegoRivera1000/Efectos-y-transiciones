@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <style>
+        /* Animacion en css*/
+        dialog[open]{  /* PASO 1: AL ABRIRLO*/
+            scale: 1;
+            transition: scale .3s ease-in-out;
+
+            @starting-style {  /* PASO 0: ESTADO INICAL*/
+                scale: 0;
+            }
+        }
+
+        dialog{/* PASO 2: AL CERRARLO*/
+            transition: scale .3s ease, display .2s ease allow-discrete;
+            scale: 0;
+
+        }
+        
+    </style>
+</head>
+<body>
+    <dialog>
+        <p> Hola está es una funcion modal</p>
+        <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jhin_37.jpg" alt="imagenprueba">
+        <form method="dialog">
+            <button>OK</button>
+        </form>
+    </dialog>
+    <button id="button">Abrir modal</button>
+
+    <script>
+        const button=document.querySelector('#button');
+        const dialog=document.querySelector('dialog');
+
+    button.addEventListener('click', () => {
+        dialog.showModal()
+    })
+    </script>
+    
+</body>
+</html>
